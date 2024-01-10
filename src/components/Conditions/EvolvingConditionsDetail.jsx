@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { connect } from "react-redux";
-import { Table, Container, Row, Col, Card } from "react-bootstrap";
+import { Table, Container, Row, Col, Card, Form } from "react-bootstrap";
 import { getEvolvingConditions } from "../../redux/selectors";
 import {
   resortEvolvingConditions,
@@ -69,18 +69,19 @@ const EvolvingConditionsDetail = (props) => {
         </Row>
         <Row>
           <Col>
-           <label className="my-4">
-            Items Per Page: 
-            <select
+           <Form.Group controlId="itemsPerPageSelect" className="my-4">
+            <Form.Label className="fw-bold">Items Per Page :</Form.Label>
+            <Form.Select
               className="mx-2"
               value={itemsPerPage}
               onChange={(e) => handleItemsPerPageChange(Number(e.target.value))}
+              aria-label="Select Items Per Page"
             >
               <option value={50}>50</option>
               <option value={100}>100</option>
               <option value={200}>200</option>
-            </select>
-           </label>
+            </Form.Select>
+           </Form.Group>
           </Col>
         </Row>
       </Container>
